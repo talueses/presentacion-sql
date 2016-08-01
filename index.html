@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="es">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>sql – Láminas para SQL.</title>
+
+		<meta name="description" content="Unas pequeñas láminas para el curso de SQL.">
+		<meta name="author" content="Unknown Kadaba. Talueses">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Lámina 0 | Inicial | Definiendo yo -->
+			<div class="slides">
+				<section>
+					<h1>SQL</h1>
+					<h3>Mínimo inicio en SQL</h3>
+					<p>
+						<small>Realizado por <a href="http://github.com/talueses">Talueses</a> / <a href="http://twitter.com/kadaba">@kadaba</a></small>
+					</p>
+				</section>
+					<!-- Lámina 1 | Inicial | SQL Definiendo -->
+				<section>
+					<h2>Hello There!</h2>
+					<h3 class="fragment fade-in">¿SQL?</h3>
+					<p class="fragment fade-in">
+						Acrónimo para: "Structured query language". Traduciendo al español, algo como: "Lenguaje de consultas estructuradas".
+					</p>
+				</section>
+
+				<!-- Lámina 2 | Definiendo DBs-->
+				<section>
+					<section>
+						<h2>¿Consultar qué?</h2>
+						<p class="fragment">Bases de datos.</p>
+						<p class="fragment">¿Qué es una base de datos?</p>
+					</section>
+
+					<section>
+						<h2>Wikipedia nos ilustra...</h2>
+						<p>Se le llama base de datos a los bancos de información que contienen datos relativos a diversas temáticas y categorizados de distinta manera, pero que comparten entre sí algún tipo de vínculo o relación que busca ordenarlos y clasificarlos en conjunto.</p>
+					</section>
+
+					<section>
+						<h3>¿No hay una definición más fácil?</h3>
+						<p class="fragment">Sí.</p>
+						<p class="fragment">Es un conjunto de información con datos asociados a un tema, con alguna clasificación.</p>
+					</section>
+				</section>
+
+				<!-- Lámina 3 | Definiendo SQL formal-->
+				<section>
+				
+					<section>
+						<h2>Un poco más formal.</h2>
+						<p>
+							Es un lenguaje declarativo de acceso a bases de datos relacionales que permite especificar diversos tipos de operaciones en ellas. Una de sus características es el manejo del álgebra y el cálculo relacional que permiten efectuar consultas con el fin de recuperar, de forma sencilla, información de bases de datos, así como hacer cambios en ellas.
+						</p>
+					</section>
+
+					<section>
+						<h3>Características</h3>
+						<ul>
+							<li>
+								Lenguaje de definición de datos: SQL proporciona comandos para la definición de esquemas de relación, borrado de relaciones y modificaciones de los esquemas de relación.
+							</li>
+							<li>
+								Lenguaje interactivo de manipulación de datos:SQL incluye lenguajes de consultas basado tanto en álgebra relacional como en cálculo relacional de tuplas.
+							</li>
+							<li>
+								Integridad: El LDD de SQL incluye comandos para especificar las restricciones de integridad que deben cumplir los datos almacenados en la base de datos.
+							</li>
+							<li>
+								Definición de vistas: El LDD incluye comandos para definir las vistas.
+							</li>
+						</ul>
+					</section>
+					
+					<section>
+							<h3>Características</h3>
+							<ul>
+								<li>
+									Control de transacciones: SQL tiene comandos para especificar el comienzo y el final de una transacción.
+								</li>
+								<li>
+									SQL incorporado y dinámico: Esto quiere decir que se pueden incorporar instrucciones de SQL en lenguajes de programación como: C++, C, Java, PHP, Cobol, Pascal y Fortran.
+								</li>
+								<li>
+									Autorización: El LDD incluye comandos para especificar los derechos de acceso a las relaciones y a las vistas.
+								</li>
+							</ul>
+					</section>
+				</section>
+
+				<!-- Lámina 4 | SGBD-->
+				<section>
+					<h2>SGBD</h2>
+					<h3>
+						Sistema de Gestión de Base de Datos.
+					</h3>
+					<p>
+						Un sistema gestor de base de datos (SGBD) es un conjunto de programas que permiten el almacenamiento, modificación y extracción de la información en una base de datos, además de proporcionar herramientas para añadir, borrar, modificar y analizar los datos. Los usuarios pueden acceder a la información usando herramientas específicas de interrogación y de generación de informes, o bien mediante aplicaciones al efecto.
+					</p>
+				</section>
+
+				<!-- Lámina 4 | SGBD Características-->
+				<section>
+					<section>
+						<h3>Componentes</h3>
+						<ul>
+							<li>
+								Motor de la base de datos.
+							</li>
+							<li>
+								Subsistema de definición de datos ayuda a crear y mantener el diccionario de datos y define la estructura del fichero que soporta la base de datos.
+							</li>
+							<li>
+								Subsistema de manipulación de datos ayuda al usuario a añadir, cambiar y borrar información de la base de datos y la interroga para extraer información. El subsistema de manipulación de datos suele ser la interfaz principal del usuario con la base de datos. Permite al usuario especificar sus requisitos de la información desde un punto de vista lógico.
+							</li>
+						</ul>
+					</section>
+
+					<section>
+						<ul>
+							<li>
+								Subsistema de generación de aplicaciones contiene utilidades para ayudar a los usuarios en el desarrollo de aplicaciones. Usualmente proporciona pantallas de entrada de datos, lenguajes de programación e interfaces.
+							</li>
+							<li>
+								Subsistema de administración ayuda a gestionar la base de datos ofreciendo funcionalidades como almacenamiento y recuperación, gestión de la seguridad, optimización de preguntas, control de concurrencia y gestión de cambios.
+							</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h3>DDL</h3>
+						<p>
+							 Data Definition Language (también conocido como DDL) es aquél que permite modificar la estructura de los objetos contemplados por la base de datos por medio de cuatro operaciones básicas.
+						</p>
+					</section>
+
+					<section>
+						<h3>DML</h3>
+						<p>
+							Lenguaje de Manipulación de Datos (Data Manipulation Language, DML) es un lenguaje proporcionado por los sistemas gestores de bases de datos que permite a los usuarios de la misma llevar a cabo las tareas de consulta o modificación de los datos contenidos en las Bases de Datos del Sistema Gestor de Bases de Datos.
+						</p>
+						<p>
+							SQL, por su parte, es un lenguaje que permite manipular datos (Data Manipulation Language o DML) que contribuye a la gestión de las bases de datos a través de consultas.
+						</p>
+					</section>
+				</section>
+
+				<!-- Lámina 5 | Sintáxis -->
+				<section>
+					<section>
+						<h3>Sintaxis</h3>
+						<p>
+							<span>El estándar SQL especifica con precisión la sintaxis que un sistema de base de datos conforme debe implementar. Sin embargo, no está tan bien definida la especificación en el estándar de la semántica de las construcciones del lenguaje, lo que lleva a ambigüedad.</span>
+						</p>
+						<p>
+							La sintaxis de SQL se basa en la sintaxis del inglés y usa muchos de los mismos elementos que la sintaxis de Visual Basic para aplicaciones (VBA).
+						</p>
+					</section>
+
+					<section data-markdown>
+						<h2>Sintaxis</h2>
+						<h2>Ejemplo:</h2>
+						```
+							Insert into  tabla ([<lista_campos>]) Values ([<lista de="de" valores="valores">])
+						```
+						```
+							SELECT * 
+							FROM tabla1 
+							WHERE ciudad = "Caramba";
+						```
+					</section>
+
+					<section>
+						<h3>Sintaxis</h3>
+						<ul>
+							<li data-markdown>
+								Cada declaración en SQL se debe finalizar con un punto y coma. ```(;)```
+							</li>
+							<li>
+								SQL es indiferente de mayúsculas y minúsculas.
+								- (Es una buena práctica escribir las declaraciones en mayúsculas.)
+							</li>
+							<li>
+								Escribir con la correcta indentación y saltos de líneas, nos hará más entendibles las declaraciones.
+							</li>
+							<li data-markdown>
+								Podemos manipular diferentes campos, tablas, etc., separándolos por una coma. ```(,)```
+							</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- Ejemplo Markdown <section data-markdown>
+					<script type="text/template">
+						## Markdown support
+
+						Write content using inline or external Markdown.
+						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+
+						```
+						<section data-markdown>
+						  ## Markdown support
+
+						  Write content using inline or external Markdown.
+						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+						</section>
+						```
+					</script>
+				</section>-->
+					<!-- Lámina 6 | Sentencias -->
+				<section>
+					<section>
+						<h3>DDL</h3>
+						<table>
+							<tbody>
+								<tr>
+									<td>Sentencia</td>
+									<td>Descripción</td>
+								</tr>
+								<tr>
+									<td> CREATE</td>
+									<td>Añade una nueva tabla a la base de datos.</td>
+								</tr>
+								<tr>
+									<td>DROP</td>
+									<td>Suprime una tabla.</td>
+								</tr>
+								<tr>
+									<td>ALTER</td>
+									<td>Modifica la estructura.</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+
+					<section>
+						<h3>DML</h3>
+						<table>
+							<tbody>
+								<tr>
+									<td>Sentencia</td>
+									<td>Descripción</td>
+								</tr>
+								<tr>
+									<td>INSERT</td>
+									<td>Añade nuevas filas a una tabla.</td>
+								</tr>
+								<tr>
+									<td>UPDATE</td>
+									<td>Actualizar datos ya existentes.</td>
+								</tr>
+								<tr>
+									<td>DELETE</td>
+									<td>Suprime filas de datos de la base de datos.</td>
+								</tr>
+								<tr>
+									<td>SELECT</td>
+									<td>Seleccionar datos.</td>
+								</tr>
+							</tbody>
+						</table>
+					</section>
+				</section>
+
+				<section>
+					<h2>Tipos de datos.</h2>
+						<img width="978" height="550" data-src="img/sql-tipoDatos.png">
+				</section>
+
+				<section>
+					<h2>MySQL</h2>
+					<h3>Como motor de base de datos.</h3>
+				</section>
+
+				<section>
+					<section data-background="#dddddd">
+						<h2>Vamos a crear una base de datos.</h2>
+					</section>
+
+					<section>
+						<h2>Pequeño algoritmo.</h2>
+						<span>(Una vez tengamos instalado MySQL...)</span>
+						<pre><code class="hljs">CREATE TABLE alumnos
+
+(
+
+idUsuario char(8)NOT NULL,
+
+idTipoUsuario int NOT NULL,
+
+apellido varchar(35)NOT NULL,
+
+nombre varchar(35) NOT NULL,
+
+correo varchar(50)NULL
+)</code></pre>
+					</section>
+
+					<section style="text-align: center;">
+						<p>
+							En este caso creamos los campos id los cuales son considerados de tipo entero de una longitud especificada por el número entre paréntesis. Para id_alumno requerimos que dicho campo se incremente automáticamente (AUTO_INCREMENT) de una unidad a cada nuevo registro para, de esta forma, automatizar su creación. Por otra parte, para evitar un mensaje de error, es necesario requerir que los campos que van a ser definidos como índices no puedan ser nulos (NOT NULL). 
+						</p>
+					<p>
+						El campo fecha es almacenado con formato de fecha (DATE) para permitir su correcta explotación a partir de las funciones previstas a tal efecto. 
+					</p>
+					</section>
+
+					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+						<h2>... Taraán!</h2>
+					</section>
+				</section>
+
+				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h3>Sintaxis para instertar datos.</h3>
+					<pre><code class="hljs">INSERT INTO "nombre_tabla" ("columna1", "columna2", ...)
+VALUES ("valor1", "valor2", ...);
+					</code></pre>
+				</section>
+
+				<section data-transition="slide" data-background-transition="zoom">
+					<h3>Sintaxis para seleccionar datos.</h3>
+					<pre><code class="hljs">SELECT * FROM "nombre_tabla";
+					</code></pre>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END.</h1>
+					<h3>Por ahora...</h3>
+					<p>
+						- <a href="http://github.com/talueses">Repositorio para la lámina</a> <br>
+						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation for Reveal.js</a>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
