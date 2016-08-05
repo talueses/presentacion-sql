@@ -307,7 +307,7 @@
 
 (
 
-idUsuario char(8)NOT NULL,
+idUsuario auto(8)NOT NULL,
 
 idTipoUsuario int NOT NULL,
 
@@ -321,7 +321,7 @@ correo varchar(50)NULL
 
 					<section style="text-align: center;">
 						<p>
-							En este caso creamos los campos id los cuales son considerados de tipo entero de una longitud especificada por el número entre paréntesis. Para id_alumno requerimos que dicho campo se incremente automáticamente (AUTO_INCREMENT) de una unidad a cada nuevo registro para, de esta forma, automatizar su creación. Por otra parte, para evitar un mensaje de error, es necesario requerir que los campos que van a ser definidos como índices no puedan ser nulos (NOT NULL). 
+							En este caso creamos los campos 'id' los cuales son considerados de tipo entero de una longitud especificada por el número entre paréntesis. Para id_alumno requerimos que dicho campo se incremente automáticamente (AUTO_INCREMENT) de una unidad a cada nuevo registro para, de esta forma, automatizar su creación. Por otra parte, para evitar un mensaje de error, es necesario requerir que los campos que van a ser definidos como índices no puedan ser nulos (NOT NULL). 
 						</p>
 					<p>
 						El campo fecha es almacenado con formato de fecha (DATE) para permitir su correcta explotación a partir de las funciones previstas a tal efecto. 
