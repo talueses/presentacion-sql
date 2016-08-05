@@ -319,6 +319,10 @@ correo varchar(50)NULL
 )</code></pre>
 					</section>
 
+					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+						<h2>... Taraán!</h2>
+					</section>
+
 					<section style="text-align: center;">
 						<p>
 							En este caso creamos los campos 'id' los cuales son considerados de tipo entero de una longitud especificada por el número entre paréntesis. Para id_alumno requerimos que dicho campo se incremente automáticamente (AUTO_INCREMENT) de una unidad a cada nuevo registro para, de esta forma, automatizar su creación. Por otra parte, para evitar un mensaje de error, es necesario requerir que los campos que van a ser definidos como índices no puedan ser nulos (NOT NULL). 
@@ -328,9 +332,24 @@ correo varchar(50)NULL
 					</p>
 					</section>
 
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... Taraán!</h2>
-					</section>
+				</section>
+
+				<section data-transition="slide" data-background-transition="zoom">
+					<h3>Una vez hayamos creado la base de datos...</h3>
+					<pre><code class="hljs">use "nombreDB";
+					</code></pre>
+				</section>
+
+				<section data-transition="slide" data-background-transition="zoom">
+					<h3>Para listar bases de datos.</h3>
+					<pre><code class="hljs">SHOW databases;
+					</code></pre>
+					<h3>Para listar tablas.</h3>
+					<pre><code class="hljs">SHOW tables;
+					</code></pre>
+					<h3>Para obtener información de tablas.</h3>
+					<pre><code class="hljs">DESCRIBE "nombreDB";
+					</code></pre>
 				</section>
 
 				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
@@ -342,7 +361,43 @@ VALUES ("valor1", "valor2", ...);
 
 				<section data-transition="slide" data-background-transition="zoom">
 					<h3>Sintaxis para seleccionar datos.</h3>
-					<pre><code class="hljs">SELECT * FROM "nombre_tabla";
+					<pre><code class="hljs">SELECT * FROM "nombreDB";
+					</code></pre>
+				</section>
+
+				<section data-transition="slide" data-background-transition="zoom">
+					<h3>Eliminar una base de datos.</h3>
+					<pre><code class="hljs">DROP DATABASE "nombreDB";
+					</code></pre>
+				</section>
+
+				<section data-transition="slide" data-background-transition="zoom">
+					<h3>Importar una base de datos.</h3>
+					<pre><code class="hljs">mysql -u root -p -h localhost "nombreDB" < export.sql;
+					</code></pre>
+				</section>
+
+				<section data-transition="slide" data-background-transition="zoom">
+					<h3>Exportar una base de datos.</h3>
+					<pre><code class="hljs">mysqldump -uusuario -ppassword "nombreDB" > archivo.sql;
+					</code></pre>
+				</section>
+
+				<section data-transition="slide" data-background-transition="zoom">
+					<h3>Un pequeño ejemplo.</h3>
+					<pre><code class="hljs">CREATE DATABASE mydb;
+USE mydb;
+CREATE TABLE mitabla ( id INT PRIMARY KEY, nombre VARCHAR(20) );
+INSERT INTO mitabla VALUES ( 1, 'Will' );
+INSERT INTO mitabla VALUES ( 2, 'Marry' );
+INSERT INTO mitabla VALUES ( 3, 'Dean' );
+SELECT id, nombre FROM mitabla WHERE id = 1;
+UPDATE mitabla SET nombre = 'Willy' WHERE id = 1;
+SELECT id, nombre FROM mitabla;
+DELETE FROM mitabla WHERE id = 1;
+SELECT id, nombre FROM mitabla;
+DROP DATABASE mydb;
+SELECT count(1) from mitabla; da el número de registros en la tabla
 					</code></pre>
 				</section>
 
