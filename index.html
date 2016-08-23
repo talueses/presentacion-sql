@@ -303,19 +303,42 @@
 					<section>
 						<h2>Pequeño algoritmo.</h2>
 						<span>(Una vez tengamos instalado MySQL...)</span>
+						<pre><code class="hljs">CREATE DATABASE "nombre db"</code></pre>
+					</section>
+
+					<section data-transition="slide" data-background-transition="zoom">
+						<h3>Una vez hayamos creado la base de datos...</h3>
+							<pre><code class="hljs">use "nombreDB";</code></pre>
+					</section>
+
+				<section data-transition="slide" data-background-transition="zoom">
+					<h3>Para listar las bases de datos.</h3>
+					<pre><code class="hljs">SHOW databases;
+					</code></pre>
+					<h3>Para listar tablas una vez dentro de una base de datos.</h3>
+					<pre><code class="hljs">SHOW tables;
+					</code></pre>
+					<h3>Para obtener información de tablas.</h3>
+					<pre><code class="hljs">DESCRIBE "nombreDB";
+					</code></pre>
+				</section>
+
+					<section>
+						<h2>Pequeño ejemplo.</h2>
+						<span>(Una vez tengamos instalado MySQL...)</span>
 						<pre><code class="hljs">CREATE TABLE alumnos
 
 (
 
 idUsuario INT(8)NOT NULL,
 
-idTipoUsuario int(8) NOT NULL,
+idTipoUsuario INT(8) NOT NULL,
 
-apellido varchar(35)NOT NULL,
+apellido VARCHAR(35)NOT NULL,
 
-nombre varchar(35) NOT NULL,
+nombre VARCHAR(35) NOT NULL,
 
-correo varchar(50)NULL
+correo VARCHAR(50)NULL
 )</code></pre>
 					</section>
 
@@ -325,31 +348,10 @@ correo varchar(50)NULL
 
 					<section style="text-align: center;">
 						<p>
-							En este caso creamos los campos 'id' los cuales son considerados de tipo entero de una longitud especificada por el número entre paréntesis. Para id_alumno requerimos que dicho campo se incremente automáticamente (AUTO_INCREMENT) de una unidad a cada nuevo registro para, de esta forma, automatizar su creación. Por otra parte, para evitar un mensaje de error, es necesario requerir que los campos que van a ser definidos como índices no puedan ser nulos (NOT NULL). 
+							En este caso creamos campos de nombre 'id' los cuales, son considerados de tipo entero de una longitud especificada por el número entre paréntesis. Para id_alumno requerimos que dicho campo se incremente automáticamente (AUTO_INCREMENT) de una unidad a cada nuevo registro para, de esta forma, automatizar su creación. Por otra parte, para evitar un mensaje de error, es necesario requerir que los campos que van a ser definidos como índices no puedan ser nulos (NOT NULL). 
 						</p>
-					<p>
-						El campo fecha es almacenado con formato de fecha (DATE) para permitir su correcta explotación a partir de las funciones previstas a tal efecto. 
-					</p>
 					</section>
 
-				</section>
-
-				<section data-transition="slide" data-background-transition="zoom">
-					<h3>Una vez hayamos creado la base de datos...</h3>
-					<pre><code class="hljs">use "nombreDB";
-					</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background-transition="zoom">
-					<h3>Para listar bases de datos.</h3>
-					<pre><code class="hljs">SHOW databases;
-					</code></pre>
-					<h3>Para listar tablas.</h3>
-					<pre><code class="hljs">SHOW tables;
-					</code></pre>
-					<h3>Para obtener información de tablas.</h3>
-					<pre><code class="hljs">DESCRIBE "nombreDB";
-					</code></pre>
 				</section>
 
 				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
@@ -384,7 +386,7 @@ VALUES ("valor1", "valor2", ...);
 				</section>
 
 				<section data-transition="slide" data-background-transition="zoom">
-					<h3>Un pequeño ejemplo.</h3>
+					<h3>Un pequeño algoritmo.</h3>
 					<pre><code class="hljs">CREATE DATABASE mydb;
 USE mydb;
 CREATE TABLE mitabla ( id INT PRIMARY KEY, nombre VARCHAR(20) );
