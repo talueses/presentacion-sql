@@ -385,6 +385,74 @@ VALUES ("valor1", "valor2", ...);
 					</code></pre>
 				</section>
 
+				<section>
+					<section>
+						<h3>
+						Claves Primarias.
+						</h3>
+						<p>
+							En el diseño de bases de datos relacionales, se llama clave primaria a un campo o a una combinación de campos que identifica de forma única a cada fila de una tabla. Una clave primaria comprende de esta manera una columna o conjunto de columnas. No puede haber dos filas en una tabla que tengan la misma clave primaria.
+							Para un valor del campo clave existe solamente 1 registro. Los valores no se repiten ni pueden ser nulos.
+						</p>
+					</section>
+					<section>
+						<h3>Ejemplo:</h3>
+						<pre><code>CREATE TABLE Alumnos
+(ID INT(2),
+nombre varchar(30),
+apellido varchar(30),
+PRIMARY KEY (ID, "otra"));</code></pre>
+					</section>
+					<section>
+						<h3>Modificando una tabla.</h3>
+						<h2>Ejemplo:</h2>
+						<pre><code>ALTER TABLE Alumnos ADD PRIMARY KEY (ID);</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>
+							Claves Foráneas.
+						</h3>
+						<p>
+							Una clave foránea o clave ajena (o Foreign Key FK) es una limitación referencial entre dos tablas. La clave foránea identifica una columna o grupo de columnas en una tabla (tabla hija o referendo) que se refiere a una columna o grupo de columnas en otra tabla (tabla maestra o referenciada). El propósito de la clave externa es asegurar la integridad referencial de los datos.
+						</p>
+					</section>
+					<section>
+						<h3>Ejemplo:</h3>
+						<small>Suponiendo que tenemos la tabla "alumnos"...</small>
+						<pre><code>CREATE TABLE notas
+(notas_ID INT(2),
+fecha DATE,
+alumno_ID INT,
+nota DOUBLE,
+PRIMARY KEY (notas_ID),
+FOREIGN KEY (alumno_ID) REFERENCES Alumnos (ID));</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Cláusula "WHERE"</h3>
+						<p>Existe una cláusula llamada, "WHERE" con la cual podemos especificar condiciones para una consulta "SELECT". Es decir, podemos recuperar aquellos registros, que sólo cumplan con ciertas condiciones indicadas con la cláusula "WHERE".</p>
+					</section>
+					<section>
+						<h3>Esta es su sintaxis, en general.</h3>
+						<pre><code>SELECT campo1, ..., campoN
+FROM tabla
+WHERE condición;</code></pre>
+					</section>
+					<section>
+						<h3>Ejemplo:</h3>
+						<pre><code>SELECT * FROM Alumnos WHERE nombre = 'Hola'</code></pre>
+					</section>
+					<section>
+						<h3>Ejemplo:</h3>
+						<pre><code>SELECT * FROM Alumnos WHERE edad = 24</code></pre>
+					</section>
+				</section>
+
 				<section data-transition="slide" data-background-transition="zoom">
 					<h3>Un pequeño algoritmo.</h3>
 					<pre><code class="hljs">CREATE DATABASE mydb;
@@ -398,9 +466,36 @@ UPDATE mitabla SET nombre = 'Willy' WHERE id = 1;
 SELECT id, nombre FROM mitabla;
 DELETE FROM mitabla WHERE id = 1;
 SELECT id, nombre FROM mitabla;
-DROP DATABASE mydb;
-SELECT count(1) from mitabla; da el número de registros en la tabla
-					</code></pre>
+DROP DATABASE mydb;</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h3>Operadores relacionales.</h3>
+						<pre><code>=	igual
+<>	distinto
+>	mayor
+<	menor
+>=	mayor o igual
+<=	menor o igual</code></pre>
+					</section>
+					<section>
+						<h3>Borrar registros (DELETE)</h3>
+						<pre><code>DELETE FROM Alumnos</code></pre>
+						<pre><code>DELETE FROM Alumnos WHERE nombre='Hola';</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h3>
+						Modelado de bases datos.
+					</h3>
+						<h2>
+							Modelo entidad-relación
+						</h2>
+					<p>
+						
+					</p>
 				</section>
 
 				<section style="text-align: left;">
