@@ -471,6 +471,35 @@ DROP DATABASE mydb;</code></pre>
 
 				<section>
 					<section>
+						<p>¿Podemos almacenar la fecha y ahora de manera automática al guardar registros?</p>
+					</section>
+					<section>
+						<pre><code>CREATE TABLE tabla_ejemplo1 (
+fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+ON UPDATE CURRENT_TIMESTAMP);</code></pre>
+					</section>
+					<section>
+						<p data-markdown>En consideración: existe el tipo de dato: ```DATETIME``` que es similar a ```TIMESTAMP``` pero con la salvedad de que, ```TIMESTAMP``` convierte todos los datos  hacia y desde UTC al escribir y leer la información, tomando como base la configuración de zona horaria del servidor, o bien, si se ha especificado, de la conexión con el motor de base de datos.</p>
+						<span data-markdown>El formato es: ```YYYY-MM-DD``` para fecha.</span>
+						<span data-markdown>El formato es: ```HH:MM:SS``` para hora.</span>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>Borrar registros (DELETE)</h3>
+						<pre><code>DELETE FROM Alumnos</code></pre>
+						<pre><code>DELETE FROM Alumnos WHERE nombre='Hola';</code></pre>
+					</section>
+				</section>
+
+						<!-- Láminas para operadores -->
+				<section>
+					<section>
+						<h3>Es hora de...</h3>
+						<h2>Operadores</h2>
+					</section>
+					<section>
 						<h3>Operadores relacionales.</h3>
 						<pre><code>=	igual
 <>	distinto
@@ -480,9 +509,113 @@ DROP DATABASE mydb;</code></pre>
 <=	menor o igual</code></pre>
 					</section>
 					<section>
-						<h3>Borrar registros (DELETE)</h3>
-						<pre><code>DELETE FROM Alumnos</code></pre>
-						<pre><code>DELETE FROM Alumnos WHERE nombre='Hola';</code></pre>
+						<h3>Ejemplo:</h3>
+							<pre><code>SELECT * FROM tabla WHERE edad <= 23</code></pre>
+					</section>
+					<section>
+						<h3>Operadores lógicos.</h3>
+						<pre><code>AND | "Y"
+OR  | "Y/O"
+XOR | "O"
+NOT | "No" (Invierte el resultado)</code></pre>
+						
+						<p>Los operadores lógicos se usan para combinar condiciones.</p>
+					</section>
+					<section>
+						<h3>Ejemplo:</h3>
+						<pre><code>SELECT * FROM tabla WHERE nombre = 'Tú' AND edad = 21;</code></pre>
+						<pre><code>SELECT * FROM tabla WHERE autor='Tú' OR editorial='Hola';</code></pre>
+					</section>
+					<section>
+						<h3>Otro ejemplo más bonito:</h3>
+						<pre><code>SELECT * FROM wp_posts
+WHERE post_date >= '2014-03-19 08:00:00'
+AND post_date <= '2014-03-19 18:00:00'
+AND post_status = 'publish';</code></pre>
+					</section>
+					<section>
+						<h3>Otro ejemplo:</h3>
+						<pre><code>SELECT * FROM libros 
+WHERE (autor='tal') OR (editorial='otro' AND precio<20);</code></pre>
+					</section>
+					<section>
+						<h3>Otros operadores lógicos</h3>
+						<p data-markdown>- ```BETWEEN```</p>
+						<p data-markdown>- ```IN```</p>
+					</section>
+					<section>
+						<h3>Ejemplo:</h3>
+						<pre><code>SELECT * FROM libros WHERE precio BETWEEN 20 AND 40;</code></pre>
+					</section>
+					<section>
+						<h3>Ejemplo:</h3>
+						<pre><code>SELECT * FROM libros WHERE autor<>'Dos' AND autor<>'Uno';</code></pre>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h3>Cláusulas:</h3>
+						<ul>
+							<li>ORDER BY</li>
+							<li>ASC</li>
+							<li>DESC</li>
+							<li>COUNT</li>
+							<li>GROUP BY</li>
+							<li>LIKE | NOT LIKE</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Ejemplos:</h3>
+						<pre><code>SELECT * FROM wp_posts
+WHERE post_date >= '2014-03-19 00:00:00'
+AND post_date <= '2014-03-19 23:59:59'
+AND post_status = 'publish'
+ORDER BY post_date ASC</code></pre>
+					</section>
+					<section>
+						<pre><code>SELECT  * FROM wp_posts
+WHERE YEAR( post_date ) = '2014'
+AND MONTH( post_date ) = '03'
+AND post_status = 'publish'
+ORDER BY post_date ASC</code></pre>
+					</section>
+					<section>
+						<pre><code>SELECT id, titulo, autor, nombre, precio 
+FROM libros ORDER BY titulo ASC, editorial DESC;</code></pre>
+					</section>
+					<section>
+						<pre><code>SELECT COUNT(*) FROM visitante WHERE ciudad='Caracas';</code></pre>
+					</section>
+					<section>
+						<pre><code>SELECT COUNT(*) FROM visitante WHERE ciudad='Maracaibo';
+SELECT COUNT(*) FROM visitantes
+WHERE ciudad='Delta Amacuro';</code></pre>
+					</section>
+					<section>
+						<pre><code>SELECT * FROM libros WHERE titulo LIKE 'A%';</code></pre>
+						<pre><code>SELECT * FROM libros WHERE titulo LIKE '%Hol';</code></pre>
+					</section>
+				</section>
+
+					<!-- Funciones -->
+				<section>
+					<section>
+						<h3>Funciones de agrupamiento.</h3>
+						<p data-markdown>La función ```SUM()``` retorna la suma de los valores que contiene el campo especificado.</p>
+						<pre><code>SELECT SUM(cantidad) FROM alumnos WHERE nombre ='Milagros';</code></pre>
+					</section>
+					<section>
+						<h3>Funciones de agrupamiento.</h3>
+						<p data-markdown>Podemos saber el valor máximo o mínimo de un campo usando las funciones ```MAX()``` y ```MIN()``` respectivamente.</p>
+						<pre><code>SELECT max(edad) FROM alumnos;</code></pre>
+						<pre><code>SELECT min(edad) FROM alumnos WHERE nombre = 'José' AND 'Pedro' ORDER BY apellido;</code></pre>
+					</section>
+					<section>
+						<h3>Funciones de agrupamiento.</h3>
+						<p data-markdown>La función ```AVG()``` retorna el valor promedio de los valores del campo especificado.</p>
+						<pre><code>SELECT AVG(edad) FROM alumnos WHERE nombre ='Carlos';</code></pre>
 					</section>
 				</section>
 
