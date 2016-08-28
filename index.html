@@ -564,6 +564,7 @@ WHERE (autor='tal') OR (editorial='otro' AND precio<20);</code></pre>
 							<li>COUNT</li>
 							<li>GROUP BY</li>
 							<li>LIKE | NOT LIKE</li>
+							<li>LIMIT</li>
 						</ul>
 					</section>
 					<section>
@@ -589,13 +590,17 @@ FROM libros ORDER BY titulo ASC, editorial DESC;</code></pre>
 						<pre><code>SELECT COUNT(*) FROM visitante WHERE ciudad='Caracas';</code></pre>
 					</section>
 					<section>
-						<pre><code>SELECT COUNT(*) FROM visitante WHERE ciudad='Maracaibo';
-SELECT COUNT(*) FROM visitantes
-WHERE ciudad='Delta Amacuro';</code></pre>
+						<pre><code>SELECT COUNT(*) FROM visitante WHERE ciudad='Maracaibo'
+(SELECT COUNT(*) FROM visitantes
+WHERE ciudad='Delta Amacuro');</code></pre>
 					</section>
 					<section>
 						<pre><code>SELECT * FROM libros WHERE titulo LIKE 'A%';</code></pre>
 						<pre><code>SELECT * FROM libros WHERE titulo LIKE '%Hol';</code></pre>
+					</section>
+					<section>
+						<h3>Sub consultas</h3>
+						<pre><code>SELECT * FROM tabla1 WHERE column1 = (SELECT column1 FROM tabla2);</pre></code>
 					</section>
 				</section>
 
@@ -616,6 +621,47 @@ WHERE ciudad='Delta Amacuro';</code></pre>
 						<h3>Funciones de agrupamiento.</h3>
 						<p data-markdown>La función ```AVG()``` retorna el valor promedio de los valores del campo especificado.</p>
 						<pre><code>SELECT AVG(edad) FROM alumnos WHERE nombre ='Carlos';</code></pre>
+					</section>
+				</section>
+
+					<!-- Uniones -->
+
+				<section>
+					<section>
+						<h3>Uniones. "JOIN"</h3>
+						<p>La sentencia "JOIN" en SQL permite combinar registros de dos o más tablas en una base de datos relacional.</p>
+						<span>NOTA: Debemos tener presente que; establecer el vínculo que se da entre las dos tablas. (Foraign Key)</span>
+					</section>
+					<section>
+						<h3>Ejemplos:</h3>
+						<pre><code>SELECT ID, N.alumnoID, nombre, evaluación_1
+FROM Alumnos A, Notas N
+WHERE A.ID = N.alumnoID</code></pre>
+					</section>
+					<section>
+						<h3>Ejemplos:</h3>
+						<pre><code>SELECT OrderID, C.CustomerID, CompanyName, OrderDate
+FROM Customers AS C, Orders AS O, Employees AS E
+WHERE (C.CustomerID = O.CustomerID AND O.EmployeeID = E.EmployeeID)
+AND (C.Country = 'Spain' OR E.EmployeeID = 5)</code></pre>
+						<p>Es decir, estamos mezclando en el "WHERE" las uniones de tablas, y las condiciones concretas de filtro de la consulta, quedando todo mucho más liado.</p>
+					</section>
+					<section>
+						<h3>El Ejemplo anterior usando "JOIN"</h3>
+						<pre><code>SELECT OrderID, C.CustomerID, CompanyName, OrderDate
+FROM Customers AS C JOIN Orders AS O ON C.CustomerID = O.CustomerID 
+JOIN Employees AS E ON O.EmployeeID = E.EmployeeID
+WHERE C.Country = 'Spain' OR E.EmployeeID = 5</code></pre>
+						<p>Sin embargo usando el segundo formato con JOIN, la consulta es mucho más clara. Aquí se aprecia claramente que la utilización de JOIN simplifica la lectura y comprensión de la instrucción SQL, ya que no necesita el uso de paréntesis y tiene una condición WHERE más sencilla.</p>
+					</section>
+					<section>
+						<h3>Ejemplos:</h3>
+						<p>También podemos utilizar una misma tabla con dos alias diferentes para distinguirlas. Veamos un ejemplo, supongamos que tenemos una columna sueldo en la tabla de empleados, y queremos saber los empleados que tienen un sueldo superior al del empleado 5:</p>
+					</section>
+					<section>
+						<pre><code>SELECT E1.EmployeeID
+FROM Employees AS E1 JOIN Employees AS E2 ON E1.Sueldo > E2.Sueldo
+WHERE E2.EmployeeID = 5</code></pre>
 					</section>
 				</section>
 
